@@ -1,2 +1,2 @@
 # JobFairChallenge2022
-Nordeus Challenge 2022
+Solution for the Nordeus Challenge 2022
