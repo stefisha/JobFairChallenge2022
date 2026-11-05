@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+.env
+.env.*
+!.env.example
+catboost_info/
+models/
+*.joblib
+*.log
+.pytest_cache/
+*.egg-info/
+build/
+dist/

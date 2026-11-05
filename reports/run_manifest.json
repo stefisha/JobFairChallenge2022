@@ -1,0 +1,13 @@
+{
+  "dataset_sha256": "7486c0923c0ed5760127d289c407dd4f698dba88f777c60653e9193451d16686",
+  "python": "3.9.6",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.4.2",
+    "catboost": "1.2.8",
+    "matplotlib": "3.9.4"
+  },
+  "known_labels_through": "2022-08-31",
+  "forecast_labels_available": false
+}

@@ -1,0 +1,20 @@
+{
+  "selected_model": "segment_28d",
+  "selection_folds": [
+    [
+      "2022-07-18",
+      "2022-08-01"
+    ],
+    [
+      "2022-08-02",
+      "2022-08-16"
+    ]
+  ],
+  "holdout": [
+    "2022-08-17",
+    "2022-08-31"
+  ],
+  "metric": "daily_retention_rmse_percentage_points",
+  "seed": 42,
+  "threads": 4
+}

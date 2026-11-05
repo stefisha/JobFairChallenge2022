@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jobfair-retention"
+version = "1.0.0"
+description = "Reproducible daily player-retention forecasting for the Nordeus JobFair challenge"
+readme = "README.md"
+authors = [{name = "Stefan Veličković"}]
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "scikit-learn==1.4.2",
+    "catboost==1.2.8",
+    "matplotlib==3.9.4",
+]
+
+[project.optional-dependencies]
+notebook = ["nbformat==5.10.4", "jupyterlab>=4,<5"]
+
+[project.scripts]
+jobfair = "jobfair.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
