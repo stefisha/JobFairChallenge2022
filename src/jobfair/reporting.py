@@ -75,7 +75,7 @@ def render_report(frame, output, forecast_path="retention_d1_predictions.csv"):
             linewidth=2,
             label=name,
         )
-    ax.set_title("Final chronological holdout · August 17–31", loc="left", pad=18)
+    ax.set_title("Final chronological holdout · August 17 to 31", loc="left", pad=18)
     ax.set_ylabel("Retention D1 (%)")
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d"))
     ax.legend(frameon=False, ncol=3, loc="lower left")
@@ -128,7 +128,7 @@ def render_report(frame, output, forecast_path="retention_d1_predictions.csv"):
         "",
         "All scores below are daily retention errors in **percentage points**.",
         "",
-        f"Selected model: **`{selected}`**, chosen using July 18–August 16 development predictions only.",
+        f"Selected model: **`{selected}`**, chosen using July 18 to August 16 development predictions only.",
         "",
         "## Development model comparison",
         "",
@@ -139,7 +139,7 @@ def render_report(frame, output, forecast_path="retention_d1_predictions.csv"):
         lines.append(f"| `{row.model}` | {row.rmse_pp:.4f} | {row.mae_pp:.4f} |")
     lines += [
         "",
-        "## Final holdout: August 17–31",
+        "## Final holdout: August 17 to 31",
         "",
         "| Model | RMSE (pp) | MAE (pp) |",
         "| --- | ---: | ---: |",
@@ -148,19 +148,19 @@ def render_report(frame, output, forecast_path="retention_d1_predictions.csv"):
         lines.append(f"| `{row.model}` | {row.rmse_pp:.4f} | {row.mae_pp:.4f} |")
     lines += [
         "",
-        f"The selected model's holdout RMSE is {improvement:.1f}% {'lower' if improvement >= 0 else 'higher'} than the random-forest reference."
+        f"The selected model's holdout RMSE is {improvement:.1f}% {'lower' if improvement >= 0 else 'higher'} than the random forest reference."
         if improvement >= 0
-        else f"The selected model did not beat the random-forest reference on the final holdout ({-improvement:.1f}% higher RMSE).",
+        else f"The selected model did not beat the random forest reference on the final holdout ({-improvement:.1f}% higher RMSE).",
         "",
         f"Mean signed holdout error: {selected_predictions.error_pp.mean():+.4f} pp. Negative error indicates underprediction.",
         "",
-        "The final holdout is a single 15-day window. It assesses the development-selected model; it is not used to reselect models or tune parameters. September targets are hidden, so no September accuracy is claimed.",
+        "The final holdout is a single 15 day window. It assesses the model selected during development; it is not used to reselect models or tune parameters. September targets are hidden, so no September accuracy is claimed.",
         "",
         "## Reproduction record",
         "",
-        "`run_manifest.json` records the dataset SHA-256, package versions, and label cutoff. `selection.json` records the model choice, split dates, seed, and thread count. Per-day predictions and fold-level metrics are included alongside this report.",
+        "`run_manifest.json` records the dataset SHA-256, package versions, and label cutoff. `selection.json` records the model choice, split dates, seed, and thread count. Daily predictions and metrics for each validation window are included alongside this report.",
         "",
-        "The random-forest reference uses the original notebook's 50-tree, depth-10, minimum-leaf-4 family, with chronological validation and sparse preprocessing. Historical row-count RMSE is a different metric and is not compared with daily percentage-point RMSE.",
+        "The random forest reference uses the original notebook's configuration with 50 trees, depth 10 and minimum leaf size 4, with chronological validation and sparse preprocessing. Historical returned count RMSE is a different metric and is not compared with daily RMSE in percentage points.",
         "",
     ]
     (output / "RESULTS.md").write_text("\n".join(lines))

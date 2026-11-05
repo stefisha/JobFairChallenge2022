@@ -2,7 +2,7 @@
 
 All scores below are daily retention errors in **percentage points**.
 
-Selected model: **`segment_28d`**, chosen using July 18–August 16 development predictions only.
+Selected model: **`segment_28d`**, chosen using July 18 to August 16 development predictions only.
 
 ## Development model comparison
 
@@ -17,7 +17,7 @@ Selected model: **`segment_28d`**, chosen using July 18–August 16 development 
 | `historical_rate` | 1.3230 | 0.9953 |
 | `recent_14d` | 1.3322 | 1.0737 |
 
-## Final holdout: August 17–31
+## Final holdout: August 17 to 31
 
 | Model | RMSE (pp) | MAE (pp) |
 | --- | ---: | ---: |
@@ -26,14 +26,14 @@ Selected model: **`segment_28d`**, chosen using July 18–August 16 development 
 | `random_forest` | 1.5038 | 1.2294 |
 | `segment_28d` | 1.6224 | 1.3241 |
 
-The selected model did not beat the random-forest reference on the final holdout (7.9% higher RMSE).
+The selected model did not beat the random forest reference on the final holdout (7.9% higher RMSE).
 
 Mean signed holdout error: -1.1750 pp. Negative error indicates underprediction.
 
-The final holdout is a single 15-day window. It assesses the development-selected model; it is not used to reselect models or tune parameters. September targets are hidden, so no September accuracy is claimed.
+The final holdout is a single 15 day window. It assesses the model selected during development; it is not used to reselect models or tune parameters. September targets are hidden, so no September accuracy is claimed.
 
 ## Reproduction record
 
-`run_manifest.json` records the dataset SHA-256, package versions, and label cutoff. `selection.json` records the model choice, split dates, seed, and thread count. Per-day predictions and fold-level metrics are included alongside this report.
+`run_manifest.json` records the dataset SHA-256, package versions, and label cutoff. `selection.json` records the model choice, split dates, seed, and thread count. Daily predictions and metrics for each validation window are included alongside this report.
 
-The random-forest reference uses the original notebook's 50-tree, depth-10, minimum-leaf-4 family, with chronological validation and sparse preprocessing. Historical row-count RMSE is a different metric and is not compared with daily percentage-point RMSE.
+The random forest reference uses the original notebook's configuration with 50 trees, depth 10 and minimum leaf size 4, with chronological validation and sparse preprocessing. Historical returned count RMSE is a different metric and is not compared with daily RMSE in percentage points.

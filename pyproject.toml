@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jobfair-retention"
 version = "1.0.0"
-description = "Reproducible daily player-retention forecasting for the Nordeus JobFair challenge"
+description = "Reproducible daily player retention forecasting for the Nordeus JobFair challenge"
 readme = "README.md"
 authors = [{name = "Stefan Veličković"}]
 requires-python = ">=3.9,<3.13"
